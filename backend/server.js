@@ -14,6 +14,9 @@ app.use(express.json());
 app.get("/", (req,res)=>{
     res.send("Book Finder Backend is running ...");
 });
+//book routes
+const bookRoutes=require("./routes/bookRoutes");
+app.use("/api/books",bookRoutes);
 
 //Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI,{useNewUrlParser:true,useUnifiedTopology:true})
